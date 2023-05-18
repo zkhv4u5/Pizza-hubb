@@ -1,0 +1,74 @@
+:root {
+  --background-color: inherit;
+  --text-color: hsl(0, 39%, 44%);
+}
+body{
+  margin: 0;
+}
+.wrapper {
+  place-content: center;
+  min-height: 100vh;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 1rem + 18vw, 6rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+  position: relative;
+  display: grid;
+}
+.content {
+  margin: auto;
+  padding: 5% 15% 15% 15%;
+  color: gray;
+  font-size: 2rem;
+}
+
+.top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+  transform:translateY(100%)
+}
+.bottom {
+  clip-path: polygon(0% 65%, 100% 50%, 100% 100%, 0% 100%);
+  color: transparent;
+  background: -webkit-linear-gradient(100deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(100deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-.05em);
+  transform: translateY(2%)
+  
+}
+.btn {
+  display: inline-block;
+  background-color: #343434;
+  color: #ffffff;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  top: -300px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #343434, #525252);
+  animation: pulse 2s infinite;
+}
+.btn:hover {
+  background-color: #000000;
+  transform: rotate(5deg);
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #343434, #525252) 1;
+  border-image-slice: 1;
+}
+.btn:hover .btn-text {
+  color: #d7dbe5;
+  text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.5);
+}
+.btn-text {
+  font-size: 24px;
+  color: rgb(247, 244, 243);
+}
+.nav-link {
+  text-decoration: none;
+}

@@ -1,0 +1,117 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding: 0px 40px 0px 10px;
+    justify-content: center;
+  }
+  .navbar-logo {
+    width: 80px;
+    height: 80px;
+  }
+  .navbar-logo-link {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+  }
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  
+  .nav-item {
+    margin-right: 40px;
+  }
+  
+  .nav-link {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    
+  }
+
+  .active {
+    color: white;
+  }
+    .navbar-home-image {
+      width: 120px;
+      height: 120px;
+      margin-right: 5px;
+    }
+    .navbar-cart-image {
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+    }  
+  
+  .nav-link:hover {
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+  }
+
+  .cart-link {
+  float: right;
+  }
+
+  .cart-link:hover {
+    background-color: white;
+    color: #333;
+    border-radius: 5px;
+  }
+
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cart-button {
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+    margin-left: 20px;
+    border: none;
+    background-color: transparent;
+  }
+  
+  .cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+  }
+  
+  .cart-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 100%;
+    right: 0;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1;
+  }
+  
+  
