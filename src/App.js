@@ -4,9 +4,10 @@ import NavigationBar from './components/Navigation';
 import HomePage from './pages/Home';
 import MenuPage from './pages/Menu';
 import ContactUsPage from './pages/Contact';
+import LocationsPage from './pages/Locations';
+import OrderOnlinePage from './pages/OrderOnline';
 import AboutUsPage from './pages/About';
-import SignUpPage from './pages/SignUp';
-import LoginPage from './pages/Login';
+import SignInPage from './pages/SignIn';
 import CheckoutPage from './pages/Checkout';
 import basename from './services/basename';
 import {CartProvider} from './services/CartContext';
@@ -21,11 +22,13 @@ function App() {
           <NavigationBar />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/menu"element={<MenuPage/>}/>
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/sign-up" element={<SignUpPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/order-online" element={<OrderOnlinePage />} />
+            <Route path="/locations" element={<LocationsPage />} />
           </Routes>
         </div>
       </BrowserRouter>
