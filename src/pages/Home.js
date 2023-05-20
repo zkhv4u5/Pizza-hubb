@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import restaurantImage from "../images/restaurant.png";
 
 function HomePage() {
   return (
