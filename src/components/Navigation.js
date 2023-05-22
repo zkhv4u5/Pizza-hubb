@@ -40,23 +40,23 @@ function NavigationBar() {
         {!loggedIn && (
         <>
           <li className="nav-item">
-            <Link to="/Sign In" className="nav-link">
+            <Link to="/sign-in" className="nav-link">
               Sign In
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Order Online" className="nav-link">
+            <Link to="/order-online" className="nav-link">
               Order Online
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Locations" className="nav-link">
+            <Link to="/locations" className="nav-link">
             Locations
             </Link>
         </li>
           <li className="nav-item">
-          <Link to="/about-us" className="nav-link">
-            About Us
+          <Link to="/our-story" className="nav-link">
+            Our Story
           </Link>
         </li>
         <li className="nav-item">

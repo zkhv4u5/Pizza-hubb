@@ -6,7 +6,7 @@ import MenuPage from './pages/Menu';
 import ContactUsPage from './pages/Contact';
 import LocationsPage from './pages/Locations';
 import OrderOnlinePage from './pages/OrderOnline';
-import AboutUsPage from './pages/About';
+import AboutUsPage from './pages/OurStory';
 import SignInPage from './pages/SignIn';
 import CheckoutPage from './pages/Checkout';
 import basename from './services/basename';
@@ -24,7 +24,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/menu"element={<MenuPage/>}/>
             <Route path="/contact-us" element={<ContactUsPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
+            <Route path="/our-story" element={<AboutUsPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/order-online" element={<OrderOnlinePage />} />
