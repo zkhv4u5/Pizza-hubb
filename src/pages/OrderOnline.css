@@ -1,0 +1,79 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+button {
+  background-color: #d8d1d1;
+  color: #090808;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5c5959;
+}
+
+/* Input styles */
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Radio button styles */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Toppings list styles */
+ul {
+  list-style-type: none;
+  padding: 100;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* Delivery option styles */
+label {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+button {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.cart-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.cart-count {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #858181;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.cool-emoji {
+  font-size: 24px;
+  margin-left: 5px;
+}

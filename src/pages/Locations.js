@@ -66,7 +66,6 @@ function LocationsPage() {
       const infoWindow = new window.google.maps.InfoWindow({
         content: '<h3>' + location.name + '</h3>' + '<p>' + location.address + '</p>'
       });
-
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
       });
