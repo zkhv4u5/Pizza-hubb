@@ -94,7 +94,7 @@ function LocationsPage() {
   };
 
   return (
-    <div>
+    <div className='main'>
       <h1>Pizza Restaurant Locations</h1>
       <div className="delivery-carryout">
         <button

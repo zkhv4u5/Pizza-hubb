@@ -2,7 +2,13 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  background-color: #f4e4b5;
 }
+
+.main {
+  margin-top: 5%;
+}
+
 button {
   background-color: #d8d1d1;
   color: #090808;

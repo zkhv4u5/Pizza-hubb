@@ -1,10 +1,11 @@
 import React from "react";
 import "./OurStory.css";
-
+import pizzaPicture from "../images/pizza_time.png"
 
 function OurStoryPage() {
   return (
     <div className="story-container">
+      <img class="picture" alt="guyHoldingPizza" src= {pizzaPicture}/>
         <h1>Our Story!</h1>
                 <p>
                 At Pizza-Hub, we believe that great pizza brings people together. We are a passionate team of pizza enthusiasts dedicated to serving delicious, handcrafted pizzas that satisfy your cravings and leave you wanting more. With our commitment to quality ingredients, exceptional flavors, and outstanding customer service, we aim to create an unforgettable dining experience for every customer who walks through our doors or orders from our website. 

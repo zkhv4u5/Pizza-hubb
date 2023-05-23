@@ -33,7 +33,7 @@ const OrderOnlinePage = () => {
   };
 
   return (
-    <div>
+    <div className='main'>
       <h1>HOW DO YOU WANT YOUR ORDER TODAY?</h1>
 
       <h2>STORE LOCATOR</h2>
