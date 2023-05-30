@@ -2,7 +2,8 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
 dotenv.config();
-
+const AAHHHH = dotenv.config();
+console.log(AAHHHH);
 let db;
 
 const connectDB = async () => {
