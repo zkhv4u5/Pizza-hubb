@@ -24,4 +24,5 @@ const getDB = () => {
   return db;
 };
 
-export { connectDB, getDB };
+const out = { connectDB, getDB };
+export default out;
