@@ -23,7 +23,7 @@ function HomePage() {
           <br></br>
           <br></br>
           <br></br>
-          <Link to="/about-us">
+          <Link to="/OurStory">
             <button className="btn btn-primary">
               <span className="btn-text">Our Story</span>
             </button>
