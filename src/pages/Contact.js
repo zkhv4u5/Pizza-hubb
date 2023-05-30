@@ -1,5 +1,5 @@
 import instagramIcon from '..//images/Instagram.png';
-import facebookIcon from '..//images/Facebook.pnn';
+import facebookIcon from '..//images/Facebook.png';
 import twitterIcon from '..//images/Twitter.png';
 import React from "react";
 import { Link } from "react-router-dom";

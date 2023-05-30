@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 const router = express.Router();
 
 // This section will help you get a list of all the menu items.
-router.get("/menu", async (req, res) => {
+const allItems = router.get("/menu", async (req, res) => {
   let collection = await db.collection("menu");
   let results = await collection.find({}).toArray();
   res.send(results).status(200);
@@ -64,4 +64,5 @@ router.delete("/menu/:id", async (req, res) => {
   res.send(result).status(200);
 });
 
+const routes = {router, allItems}
 export default router;
