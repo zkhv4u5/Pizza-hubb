@@ -1,5 +1,5 @@
 import instagramIcon from '..//images/Instagram.png';
-import facebookIcon from '..//images/Facebook.png';
+import facebookIcon from '..//images/Facebook.jpg';
 import twitterIcon from '..//images/Twitter.png';
 import React from "react";
 import { Link } from "react-router-dom";
@@ -16,7 +16,7 @@ const ContactPage = () => {
             <input type="email" id="email" name="name" placeholder="Your email address" required className="small-input"/>
             <textarea id="message" name="message" placeholder="Your message" required className="large-input"></textarea>
 
-            <botton type="submit">Send</botton>
+            <button type="submit">Send</button>
         </form> 
         <div className="contact-social-container">
           <img src={instagramIcon} alt="Instagram"/>
