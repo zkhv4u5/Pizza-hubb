@@ -1,28 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
  
-const menu = (props) => (
+const Menu = (props) => (
  <tr>
    <td>{props.menu.name}</td>
-   <td>{props.menu.position}</td>
-   <td>{props.menu.level}</td>
-   <td>
-     <Link className="btn btn-link" to={`/edit/${props.menu._id}`}>Add to cart</Link> |
-     <button className="btn btn-link"
-       onClick={() => {
-         props.addCart(props.menu._id);
-       }}
-     >
-       Delete
-     </button>
-   </td>
+   <td>{props.menu.price}</td>
+   <td>{props.menu.ingredents}</td>
  </tr>
 );
  
 export default function MenuList() {
- const [menus, setMenus] = useState([]);
+ const [items, setMenu] = useState([]);
  
- // This method fetches the menus from the database.
+ // This method fetches the items from the database.
  useEffect(() => {
    async function getMenu() {
      const response = await fetch(`http://localhost:5050/menu/`);
@@ -33,13 +23,40 @@ export default function MenuList() {
        return;
      }
  
-     const menus = await response.json();
-     setMenus(menus);
+     const items = await response.json();
+     setMenu(items);
    }
  
    getMenu();
  
    return;
- }, [menus.length]);
+ }, [items.length]);
  
+ function menuList() {
+  return Menu.map((name,price,ingredents) => {
+    return (
+      <Menu
+        name={name}
+        price={price}
+        ingredents={ingredents}
+      />
+    );
+  });
 }
+
+ return (
+  <div>
+    <h3>Menu</h3>
+    <table className="table table-striped" style={{ marginTop: 20 }}>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>{menuList()}</tbody>
+    </table>
+  </div>
+);
+}
+ 

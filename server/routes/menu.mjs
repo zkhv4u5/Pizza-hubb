@@ -5,23 +5,22 @@ import { ObjectId } from "mongodb";
 const router = express.Router();
 
 // This section will help you get a list of all the menu items.
-const allItems = router.get("/menu", async (req, res) => {
+  router.get("/menu", async (req, res) => {
   let collection = await db.collection("menu");
   let results = await collection.find({}).toArray();
   res.send(results).status(200);
 });
 
-// This section will help you get a single record by id
+// This section will help you get a single menu item by id
 router.get("/menu/:id", async (req, res) => {
   let collection = await db.collection("menu");
   let query = {_id: new ObjectId(req.params.id)};
   let result = await collection.findOne(query);
-
   if (!result) res.send("Not found").status(404);
   else res.send(result).status(200);
 });
 
-// This section will help you create a new record.
+// This section will help you create a new menu item.
 router.post("/menu", async (req, res) => {
   let newDocument = {
     name: { type: String, required: true },
@@ -64,5 +63,4 @@ router.delete("/menu/:id", async (req, res) => {
   res.send(result).status(200);
 });
 
-const routes = {router, allItems}
 export default router;

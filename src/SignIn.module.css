@@ -1,0 +1,16 @@
+.primaryColor {
+    background-color: bisque;
+    color: black;
+  }
+
+.margin {
+    margin-top: 10%;
+    margin-left: 39.5%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

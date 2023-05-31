@@ -4,6 +4,7 @@
   "homepage": "https://zkhv4u5.github.io/pizza-hub/",
   "private": true,
   "dependencies": {
+    "@clerk/clerk-react": "^4.17.0",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@firebase/auth": "^0.23.0",
@@ -29,7 +30,6 @@
     "mongoose": "^7.1.1",
     "npm": "^9.6.7",
     "react": "^18.2.0",
-    "react-axios": "^2.0.6",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
     "web-vitals": "^2.1.4"
