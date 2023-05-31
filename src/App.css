@@ -2,6 +2,7 @@
   text-align: center;
   padding-top: 20px;
   background-color: #f4e4b5;
+
 }
 
 .App-logo {
@@ -19,6 +20,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: sticky;
+  position: -webkit-sticky;
 }
 
 .login{
