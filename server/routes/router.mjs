@@ -1,6 +1,6 @@
 import express from "express";
 import db from "../db/conn.mjs";
-import { ObjectId } from "mongodb";
+import { ObjectId, MongoClient } from "mongodb";
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ const order = router.get("/order/:id", async (req, res) => {
   });
   
 const pizza = router.get("/menu/:id", async (req, res) => {
-    let collection = await db.collection("menu");
+    let collection = db.collection("Menu");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
   
@@ -33,11 +33,24 @@ const user = router.get("/user/:id", async (req, res) => {
   
 
 // This section will help you get a list of all the menu items.
-  router.get("/menu", async (req, res) => {
-  let collection = await db.collection("menu");
-  let results = await collection.find({}).toArray();
-  res.send(results).status(200);
-});
+//   router.get("/menu", async (req, res) => {
+//   let collection = await db.collection("menu");
+//   let results = await collection.find({}).toArray();
+//   res.send(results).status(200);
+// });
+
+router.get("/menu", async (req, res) => {
+    const client = new MongoClient(process.env.ATLAS_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  
+    await client.connect();
+    const db = client.db("web-pizza");
+    let collection = db.collection("Menu");
+    let results = await collection.find({}).toArray();
+    res.send(results).status(200);
+  });
 
 // This section will help you get a single menu item by id
 router.get("/menu/:id", async (req, res) => {

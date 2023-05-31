@@ -3,7 +3,7 @@ import cors from "cors";
 import pizza from "./routes/menu.mjs";
 import user from "./routes/user.mjs";
 import order from "./routes/order.mjs";
-import router from "./routes/menu.mjs";
+import router from "./routes/router.mjs";
 import out from "./db/conn.mjs";
 
 const PORT = process.env.PORT || 5050;

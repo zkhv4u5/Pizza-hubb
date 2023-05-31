@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
  
-const Menu = (props) => (
- <tr>
-   <td>{props.menu.name}</td>
-   <td>{props.menu.price}</td>
-   <td>{props.menu.ingredents}</td>
- </tr>
-);
- 
+const Menu = ({menu}) => (
+  <tr>
+    <td>{menu.name}</td>
+    <td>{menu.price}</td>
+    <td>{menu.ingredients}</td>
+  </tr>
+ );
+
 export default function MenuList() {
  const [items, setMenu] = useState([]);
  
@@ -24,21 +24,22 @@ export default function MenuList() {
      }
  
      const items = await response.json();
+     console.log(items);
      setMenu(items);
    }
  
-   getMenu();
- 
+  //  getMenu();
+   getMenu().catch(error => console.error(error));
+
    return;
  }, [items.length]);
- 
- function menuList() {
-  return Menu.map((name,price,ingredents) => {
+
+function menuList() {
+  return items.map(({name, price, ingredients}, index) => {
     return (
       <Menu
-        name={name}
-        price={price}
-        ingredents={ingredents}
+        key={index}
+        menu={{name, price, ingredients}}
       />
     );
   });
@@ -48,12 +49,13 @@ export default function MenuList() {
   <div>
     <h3>Menu</h3>
     <table className="table table-striped" style={{ marginTop: 20 }}>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-        </tr>
-      </thead>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Ingredients</th>
+      </tr>
+    </thead>
       <tbody>{menuList()}</tbody>
     </table>
   </div>
