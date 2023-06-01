@@ -12,7 +12,7 @@ import SignInPage from './pages/SignIn';
 import CheckoutPage from './pages/Checkout';
 import Manage from './pages/Manage'
 import basename from './services/basename';
-import {CartProvider} from './services/CartContext';
+import CartProvider from './components/CartProvider';
 import './App.css';
 import {ClerkProvider,SignedIn,SignedOut,RedirectToSignIn,SignIn,SignUp} from "@clerk/clerk-react";
 import { Grid } from '@mui/material';
@@ -43,6 +43,7 @@ function ClerkProviderWithRoutes() {
                 }
                 }}/>} />
               <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />}/>
+              <Route path="/sign-out" element={<SignUp routing="path" path="/sign-out" />}/>
               <Route path="/admin" element={<> <SignedIn> <Manage /></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/our-story" element={<OurStoryPage />} />

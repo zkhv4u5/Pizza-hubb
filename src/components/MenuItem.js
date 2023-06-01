@@ -62,22 +62,26 @@
 // );
 // }
  
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./menuItem.css";
+// import CartContext from "./CartContext";
 
-const MenuCard = ({menu, handleAddToCart}) => (
-  <div className="card" style={{width: '18rem', margin: '10px'}}>
-    <div className="card-body">
-      <h5 className="card-title">{menu.name}</h5>
-      <h6 className="card-subtitle mb-2 text-muted" >{menu.price}</h6>
-      <h7 className="card-subtitle mb-2 ">{menu.ingredients}</h7>
-      <div className="mt-3">
-        <button className="btn btn-primary" onClick={alert}>Add to Cart</button>
+const MenuCard = ({menu, handleAddToCart}) => {
+  // const { addToCart } = useContext(CartContext);
+  return(
+    <div className="card" style={{width: '18rem', margin: '10px'}}>
+      <div className="card-body">
+        <h5 className="card-title">{menu.name}</h5>
+        <h6 className="card-subtitle mb-2 text-muted" >{menu.price}</h6>
+        <h7 className="card-subtitle mb-2 ">{menu.ingredients}</h7>
+        <div className="mt-3">
+        <button className="btn btn-primary"  >Add to Cart</button>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+}
 export default function MenuList() {
  const [items, setMenu] = useState([]);
 

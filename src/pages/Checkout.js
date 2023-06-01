@@ -80,3 +80,18 @@
 //     <App />
 //   </StrictMode>
 // );
+// import { StrictMode } from "react";
+// import { createRoot } from "react-dom/client";
+// import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+// import {Cart} from "../components/Cart";
+
+
+// function CheckoutPage() {
+//     return(
+//     <div>
+//       <Cart>
+//       </Cart>
+//     </div>
+//     )
+//     }
+//     export default CheckoutPage;
