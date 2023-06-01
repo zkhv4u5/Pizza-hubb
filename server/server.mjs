@@ -3,6 +3,7 @@ import cors from "cors";
 import pizza from "./routes/menu.mjs";
 import user from "./routes/user.mjs";
 import order from "./routes/order.mjs";
+import path from 'path'
 import router from "./routes/router.mjs";
 import out from "./db/conn.mjs";
 
@@ -16,6 +17,13 @@ app.use(express.json());
 // app.use("/user", user);
 // app.use("/order", order);
 
+if (process.env.NODE_ENV === 'production') {
+  //*Set static folder up in production
+  app.use(express.static('client/build'));
+
+  app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+}
+
 app.use("/",router)
 
 // start the Express server
@@ -23,4 +31,5 @@ out.connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
   });
+
 });
