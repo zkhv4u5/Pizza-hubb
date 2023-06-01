@@ -11,6 +11,7 @@ function HomePage() {
         <div className="content">
           <h2>Welcome to Pizza Hub!</h2>
           <p>
+          <br></br>
           At Pizza-Hub, we believe that great pizza brings people together. We are a passionate team of pizza enthusiasts dedicated to serving delicious, handcrafted pizzas that satisfy your cravings and leave you wanting more!
           </p>
           <br></br>
