@@ -10,7 +10,7 @@ import OrderOnlinePage from './pages/OrderOnline';
 import OurStoryPage from './pages/OurStory';
 import SignInPage from './pages/SignIn';
 import CheckoutPage from './pages/Checkout';
-import Manage from './pages/Manage'
+import ManagePage from './pages/Manage'
 import basename from './services/basename';
 import CartProvider from './components/CartProvider';
 import './App.css';
@@ -44,7 +44,7 @@ function ClerkProviderWithRoutes() {
                 }}/>} />
               <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />}/>
               <Route path="/sign-out" element={<SignUp routing="path" path="/sign-out" />}/>
-              <Route path="/admin" element={<> <SignedIn> <Manage /></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
+              <Route path="/admin" element={<> <SignedIn> <ManagePage /></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/our-story" element={<OurStoryPage />} />
               <Route path="/menu"element={<MenuPage/>}/>

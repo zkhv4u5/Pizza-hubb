@@ -87,7 +87,7 @@ export default function MenuList() {
 
  useEffect(() => {
    async function getMenu() {
-     const response = await fetch(`http://localhost:5050/menu/`);
+     const response = await fetch(`http://localhost:5050/api/menu/`);
 
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;

@@ -4,7 +4,7 @@ import { ObjectId, MongoClient } from "mongodb";
 
 const router = express.Router();
 
-const order = router.get("/order/:id", async (req, res) => {
+const order = router.get("/api/order/:id", async (req, res) => {
     let collection = await db.collection("Order");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
@@ -13,7 +13,7 @@ const order = router.get("/order/:id", async (req, res) => {
     else res.send(result).status(200);
   });
   
-const pizza = router.get("/menu/:id", async (req, res) => {
+const pizza = router.get("/api/menu/:id", async (req, res) => {
     let collection = db.collection("Menu");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
@@ -22,7 +22,7 @@ const pizza = router.get("/menu/:id", async (req, res) => {
     else res.send(result).status(200);
 });
   
-const user = router.get("/user/:id", async (req, res) => {
+const user = router.get("/api/user/:id", async (req, res) => {
     let collection = await db.collection("user");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
@@ -39,7 +39,7 @@ const user = router.get("/user/:id", async (req, res) => {
 //   res.send(results).status(200);
 // });
 
-router.get("/menu", async (req, res) => {
+router.get("/api/menu", async (req, res) => {
     const client = new MongoClient(process.env.ATLAS_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -53,7 +53,7 @@ router.get("/menu", async (req, res) => {
   });
 
 // This section will help you get a single menu item by id
-router.get("/menu/:id", async (req, res) => {
+router.get("/api/menu/:id", async (req, res) => {
   let collection = await db.collection("menu");
   let query = {_id: new ObjectId(req.params.id)};
   let result = await collection.findOne(query);
@@ -62,7 +62,7 @@ router.get("/menu/:id", async (req, res) => {
 });
 
 // This section will help you create a new menu item.
-router.post("/menu", async (req, res) => {
+router.post("/api/menu", async (req, res) => {
   let newDocument = {
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -76,7 +76,7 @@ router.post("/menu", async (req, res) => {
 });
 
 // This section will help you update a menu item by id.
-router.patch("/menu/:id", async (req, res) => {
+router.patch("/api/menu/:id", async (req, res) => {
   const query = { _id: new ObjectId(req.params.id) };
   const updates =  {
     $set: {
@@ -95,7 +95,7 @@ router.patch("/menu/:id", async (req, res) => {
 });
 
 // This section will help you delete a record
-router.delete("/menu/:id", async (req, res) => {
+router.delete("/api/menu/:id", async (req, res) => {
   const query = { _id: new ObjectId(req.params.id) };
 
   const collection = db.collection("menu");
@@ -105,14 +105,14 @@ router.delete("/menu/:id", async (req, res) => {
 });
 
   // This section will help you get a list of all the orders.
-  router.get("/order", async (req, res) => {
+  router.get("/api/order", async (req, res) => {
     let collection = await db.collection("Order");
     let results = await collection.find({}).toArray();
     res.send(results).status(200);
   });
   
   // This section will help you get a single record by id
-  router.get("/order/:id", async (req, res) => {
+  router.get("/api/order/:id", async (req, res) => {
     let collection = await db.collection("Order");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
@@ -122,7 +122,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you create a new record.
-  router.post("/order", async (req, res) => {
+  router.post("/api/order", async (req, res) => {
     let newDocument = {
       user: { type: user, required: true },
       date: { type: Date, default: Date.now },
@@ -142,7 +142,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you update a record by id.
-  router.patch("/order/:id", async (req, res) => {
+  router.patch("/api/order/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
     const updates =  {
       $set: {
@@ -159,7 +159,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you delete a record
-  router.delete("/order/:id", async (req, res) => {
+  router.delete("/api/order/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
   
     const collection = db.collection("Order");
@@ -170,14 +170,14 @@ router.delete("/menu/:id", async (req, res) => {
 
 
   // This section will help you get a list of all the users.
-  router.get("/user", async (req, res) => {
+  router.get("/api/user", async (req, res) => {
     let collection = await db.collection("user");
     let results = await collection.find({}).toArray();
     res.send(results).status(200);
   });
   
   // This section will help you get a single record by id
-  router.get("/user/:id", async (req, res) => {
+  router.get("/api/user/:id", async (req, res) => {
     let collection = await db.collection("user");
     let query = {_id: new ObjectId(req.params.id)};
     let result = await collection.findOne(query);
@@ -187,7 +187,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you create a new record.
-  router.post("/user", async (req, res) => {
+  router.post("/api/user", async (req, res) => {
     let newDocument = {
       name: { type: String, required: true },
       email: { type: String, required: true },
@@ -217,7 +217,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you update a record by id.
-  router.patch("/user/:id", async (req, res) => {
+  router.patch("/api/user/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
     const updates =  {
       $set: {
@@ -234,7 +234,7 @@ router.delete("/menu/:id", async (req, res) => {
   });
   
   // This section will help you delete a record
-  router.delete("/user/:id", async (req, res) => {
+  router.delete("/api/user/:id", async (req, res) => {
     const query = { _id: new ObjectId(req.params.id) };
   
     const collection = db.collection("user");
