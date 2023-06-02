@@ -39,12 +39,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node ./server/server.mjs",
-    "server": "nodemon server.js",
-    "client": "react-scripts start",
-    "clientinstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run start\" \"npm run client\"",
-    "render-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build -- prefix client"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
