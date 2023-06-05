@@ -35,6 +35,7 @@ function ClerkProviderWithRoutes() {
           <NavigationBar />
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/pizza-hub" element={<HomePage />} />
               <Route path="/sign-in/*" element={<SignIn routing="path" path="/sign-in"         appearance={{
                 elements: {
                   formButtonPrimary: styles.primaryColor,
@@ -44,9 +45,10 @@ function ClerkProviderWithRoutes() {
                 }}/>} />
               <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />}/>
               <Route path="/sign-out" element={<SignUp routing="path" path="/sign-out" />}/>
-              <Route path="/admin" element={<> <SignedIn> <ManagePage /></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
+              <Route path="/admin" element={<> <SignedIn></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/our-story" element={<OurStoryPage />} />
+              <Route path="/manage"element={<ManagePage/>}/>
               <Route path="/menu"element={<MenuPage/>}/>
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/order-online" element={<OrderOnlinePage />} />

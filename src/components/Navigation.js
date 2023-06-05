@@ -23,12 +23,12 @@ function NavigationBar() {
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary ">
-      <Link to="/" className="navbar-logo-link">
+      <Link to="/pizza-hub" className="navbar-logo-link">
         <img src={logo} alt="Logo" className="navbar-logo" />
       </Link>
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link to="/" className="nav-link">
+          <Link to="/pizza-hub" className="nav-link">
             Home
           </Link>
         </li>

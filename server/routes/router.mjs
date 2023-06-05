@@ -54,7 +54,7 @@ router.get("/api/menu", async (req, res) => {
 
 // This section will help you get a single menu item by id
 router.get("/api/menu/:id", async (req, res) => {
-  let collection = await db.collection("menu");
+  let collection = await db.collection("Menu");
   let query = {_id: new ObjectId(req.params.id)};
   let result = await collection.findOne(query);
   if (!result) res.send("Not found").status(404);
@@ -70,7 +70,7 @@ router.post("/api/menu", async (req, res) => {
     price: { type: Number, required: true },
     image_url: { type: String, required: true },
   };
-  let collection = await db.collection("menu");
+  let collection = await db.collection("Menu");
   let result = await collection.insertOne(newDocument);
   res.send(result).status(204);
 });
@@ -88,7 +88,7 @@ router.patch("/api/menu/:id", async (req, res) => {
   }
   };
 
-  let collection = await db.collection("menu");
+  let collection = await db.collection("Menu");
   let result = await collection.updateOne(query, updates);
 
   res.send(result).status(200);
@@ -98,7 +98,7 @@ router.patch("/api/menu/:id", async (req, res) => {
 router.delete("/api/menu/:id", async (req, res) => {
   const query = { _id: new ObjectId(req.params.id) };
 
-  const collection = db.collection("menu");
+  const collection = db.collection("Menu");
   let result = await collection.deleteOne(query);
 
   res.send(result).status(200);
