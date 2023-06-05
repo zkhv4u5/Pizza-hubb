@@ -63,6 +63,11 @@ router.get("/api/menu/:id", async (req, res) => {
 
 // This section will help you create a new menu item.
 router.post("/api/menu", async (req, res) => {
+  const client = new MongoClient(process.env.ATLAS_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+
   let newDocument = {
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -70,6 +75,7 @@ router.post("/api/menu", async (req, res) => {
     price: { type: Number, required: true },
     image_url: { type: String, required: true },
   };
+  const db = client.db("web-pizza");
   let collection = await db.collection("Menu");
   let result = await collection.insertOne(newDocument);
   res.send(result).status(204);
@@ -77,6 +83,10 @@ router.post("/api/menu", async (req, res) => {
 
 // This section will help you update a menu item by id.
 router.patch("/api/menu/:id", async (req, res) => {
+  const client = new MongoClient(process.env.ATLAS_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   const query = { _id: new ObjectId(req.params.id) };
   const updates =  {
     $set: {
@@ -87,7 +97,7 @@ router.patch("/api/menu/:id", async (req, res) => {
     image_url: { type: String, required: true },
   }
   };
-
+  const db = client.db("web-pizza");
   let collection = await db.collection("Menu");
   let result = await collection.updateOne(query, updates);
 
@@ -96,8 +106,12 @@ router.patch("/api/menu/:id", async (req, res) => {
 
 // This section will help you delete a record
 router.delete("/api/menu/:id", async (req, res) => {
+  const client = new MongoClient(process.env.ATLAS_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   const query = { _id: new ObjectId(req.params.id) };
-
+  const db = client.db("web-pizza")
   const collection = db.collection("Menu");
   let result = await collection.deleteOne(query);
 
