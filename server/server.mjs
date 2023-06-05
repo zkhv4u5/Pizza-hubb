@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
   //*Set static folder up in production
   app.use(express.static('public/build'));
 
-  app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'public', 'build','index.html')));
+  app.get('*', (req,res) => res.sendFile(path.resolve(new URL(import.meta.url).pathname, '..', 'public', 'build','index.html')));
 }
 
 app.use("/",router)
