@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import "./menuItem.css";
+import "./menuItem.css"; 
+
 // import CartContext from "./CartContext";
 
 const MenuCard = ({menu, handleAddToCart}) => {
@@ -10,12 +11,13 @@ const MenuCard = ({menu, handleAddToCart}) => {
       <div className="card-body">
         <h5 className="card-title">{menu.name}</h5>
         <h6 className="card-subtitle mb-2 text-muted" >{menu.price}</h6>
-        <h7 className="card-subtitle mb-2 ">{menu.ingredients}</h7>
+        <p className="card-subtitle mb-2 p">{menu.description}</p>
+        <img className="picture" src={`/images/${menu.image_url}`} alt="Menu Item" />
         <div className="mt-3">
         <button className="btn btn-primary"  >Add to Cart</button>
         </div>
       </div>
-    </div>
+    </div>  
   );
 }
 export default function MenuList() {
