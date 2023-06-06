@@ -45,7 +45,7 @@ function ClerkProviderWithRoutes() {
                 }}/>} />
               <Route path="/sign-up/*" element={<SignUp routing="path" path="/sign-up" />}/>
               <Route path="/sign-out" element={<SignUp routing="path" path="/sign-out" />}/>
-              <Route path="/admin" element={<> <SignedIn></SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
+              <Route path="/admin" element={<> <SignedIn>{<ManagePage/>}</SignedIn> <SignedOut> <RedirectToSignIn /></SignedOut></>}/>
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/our-story" element={<OurStoryPage />} />
               <Route path="/manage"element={<ManagePage/>}/>

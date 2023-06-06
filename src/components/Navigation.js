@@ -40,7 +40,7 @@ function NavigationBar() {
         {!loggedIn && (
         <>
           <li className="nav-item">
-            <Link to="/sign-in" className="nav-link">
+            <Link to="/admin" className="nav-link">
               Sign In
             </Link>
           </li>
