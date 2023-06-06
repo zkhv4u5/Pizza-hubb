@@ -63,17 +63,19 @@ router.get("/api/menu/:id", async (req, res) => {
 
 // This section will help you create a new menu item.
 router.post("/api/menu", async (req, res) => {
+  console.log("POST" + JSON.stringify(req.body, null, 2));
+  console.log(req.body.name);
   const client = new MongoClient(process.env.ATLAS_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
 
   let newDocument = {
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    ingredients: [String],
-    price: { type: Number, required: true },
-    image_url: { type: String, required: true },
+    name: req.body.name,
+    description: req.body.description,
+    ingredients: req.body.ingredients,
+    price: req.body.price,
+    image_url: req.body.image_url,
   };
   const db = client.db("web-pizza");
   let collection = await db.collection("Menu");
@@ -83,6 +85,7 @@ router.post("/api/menu", async (req, res) => {
 
 // This section will help you update a menu item by id.
 router.patch("/api/menu/:id", async (req, res) => {
+  console.log(req.body);
   const client = new MongoClient(process.env.ATLAS_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
