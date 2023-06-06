@@ -14,10 +14,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use("/menu", pizza);
-// app.use("/user", user);
-// app.use("/order", order);
-
 if (process.env.NODE_ENV === 'production') {
   //*Set static folder up in production
   app.use(express.static('public/build'));

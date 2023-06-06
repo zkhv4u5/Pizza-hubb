@@ -30,14 +30,6 @@ const user = router.get("/api/user/:id", async (req, res) => {
     if (!result) res.send("Not found").status(404);
     else res.send(result).status(200);
 });  
-  
-
-// This section will help you get a list of all the menu items.
-//   router.get("/menu", async (req, res) => {
-//   let collection = await db.collection("menu");
-//   let results = await collection.find({}).toArray();
-//   res.send(results).status(200);
-// });
 
 router.get("/api/menu", async (req, res) => {
     const client = new MongoClient(process.env.ATLAS_URI, {
