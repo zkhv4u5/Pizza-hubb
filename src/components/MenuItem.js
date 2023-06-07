@@ -2,11 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./menuItem.css"; 
 import "../images/pep.png" 
+import CartContext from "./CartContext";
 
-// import CartContext from "./CartContext";
+
 
 const MenuCard = ({menu, handleAddToCart}) => {
-  // const { addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   console.log(`../images/${menu.image_url}`);
   return(
     <div className="card" style={{width: '18rem', margin: '10px'}}>
@@ -16,10 +17,10 @@ const MenuCard = ({menu, handleAddToCart}) => {
         <p className="card-subtitle mb-2 p">{menu.description}</p>
         <img className="picture" src={`${process.env.PUBLIC_URL}/images/${menu.image_url}`} alt="Menu Item" />
         <div className="mt-3">
-        <button className="btn btn-primary"  >Add to Cart</button>
+        <button className="btn btn-primary" onClick={() => console.log(addToCart(menu)) } >Add to Cart</button> 
         </div>
-      </div>
-    </div>  
+        </div>
+      </div>  
   );
 }
 export default function MenuList() {
