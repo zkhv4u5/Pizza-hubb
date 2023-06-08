@@ -6,6 +6,7 @@ import logo from '../images/logo.png';
 import { CartContext } from '../services/CartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { UserButton } from "@clerk/clerk-react";
 
 function NavigationBar() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -72,6 +73,7 @@ function NavigationBar() {
               <FontAwesomeIcon icon={faShoppingCart} />
           </Link>
         </li>
+        <UserButton />
       </ul>
     </nav>
   );
