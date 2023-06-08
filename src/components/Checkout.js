@@ -30,7 +30,7 @@ function CheckoutForm({ cartItems }) {
         const userDoc = await userRef.get();
         if (userDoc.exists) {
           const userData = userDoc.data();
-          const[street, city, state, zipCode] = userData.address.split(', ');
+          const [street, city, state, zipCode] = userData.address.split(', ');
           setStreet(street);
           setCity(city);
           setState(state);
@@ -39,13 +39,12 @@ function CheckoutForm({ cartItems }) {
       };
       fetchUserData();
     } else {
-        setStreet('');
-        setCity('');
-        setState('');
-        setZipCode('');
+      setStreet('');
+      setCity('');
+      setState('');
+      setZipCode('');
     }
   };
-
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged((userAuth) => {
@@ -122,7 +121,6 @@ function CheckoutForm({ cartItems }) {
       } else {
         console.log('Success!');
         // ... Save order data to the database and clear the cart
-
       }
     } catch (error) {
       console.error('[createPaymentIntent error]', error);
@@ -157,144 +155,124 @@ function CheckoutForm({ cartItems }) {
               Carryout
             </label>
           </div>
-          <button className="place-order-btn" onClick={handleSubmit}>
-            Place Order
-          </button>
         </div>
 
         <div className="confirmation-info-container">
-          <div className='quadrants-container'>
-            <div className="top-left-quadrant">
-              <h3>Your Information</h3>
-              <hr className="dotted-divider" />
-              <p>{user?.displayName}</p>
-              <p>{user?.email}</p>
+          <div className="quadrants-container">
+            <div className="left-quadrant">
+              <div className="info-section">
+                <h3>Your Information</h3>
+                <hr className="dotted-divider" />
+                <p>{user?.displayName}</p>
+                <p>{user?.email}</p>
+              </div>
+              <div className="info-section">
+                <h3>Delivery Address</h3>
+                <hr className="dotted-divider" />
+                {delivery && (
+                  <>
+                    <div className="address-option">
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={useAddressFromAccount}
+                          onChange={handleUseAddressFromAccountChange}
+                        />
+                        Use address from account
+                      </label>
+                    </div>
+                    <table className="address-table">
+                      <tbody>
+                        <tr>
+                          <td><label htmlFor="street">Street:</label></td>
+                          <td>
+                            <input
+                              type="text"
+                              id="street"
+                              value={street}
+                              onChange={(e) => setStreet(e.target.value)}
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label htmlFor="city">City:</label></td>
+                          <td>
+                            <input
+                              type="text"
+                              id="city"
+                              value={city}
+                              onChange={(e) => setCity(e.target.value)}
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label htmlFor="state">State:</label></td>
+                          <td>
+                            <input
+                              type="text"
+                              id="state"
+                              value={state}
+                              onChange={(e) => setState(e.target.value)}
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><label htmlFor="zipCode">Zip Code:</label></td>
+                          <td>
+                            <input
+                              type="text"
+                              id="zipCode"
+                              value={zipCode}
+                              onChange={(e) => setZipCode(e.target.value)}
+                            />
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </>
+                )}
+              </div>
             </div>
-            <div className="top-right-quadrant">
-              <h3>Cart</h3>
-              <hr className="dotted-divider" />
-              {cartItems.map((item) => (
-                <div className="cart-item" key={item.id}>
-                  <span>{item.name}</span>
-                  <span>${(item.price / 100).toFixed(2)}</span>
-                </div>
-              ))}
-            </div>
-            <div className="bottom-left-quadrant">
-              <h3>Payment</h3>
-              <hr className="dotted-divider" />
-              {/* ...existing checkbox for auto-filling credit card details */}
-              <form onSubmit={handleSubmit}>
-                <table className='card-table'>
-                  <tbody>
-                    <tr>
-                      <td><label htmlFor='card'>Card Number:</label></td>
-                      <td><CardNumberElement className='card-number' options={CARD_ELEMENT_OPTIONS}/></td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor='exp'>Expiration Date:</label></td>
-                      <td><CardExpiryElement options={CARD_ELEMENT_OPTIONS}/></td>
-                    </tr>
-                    <tr>
-                      <td><label htmlFor='cvc'>CVC:</label></td>
-                      <td><CardCvcElement options={CARD_ELEMENT_OPTIONS}/></td>
-                    </tr>
-                  </tbody>
-                </table>
-              <button type="submit">Confirm Order</button>
-            </form>
-            </div>
-            <div className="bottom-right-quadrant">
-              <h3>Delivery Address</h3>
-              <hr className="dotted-divider" />
-              {delivery && (
-        <>
-          <div>
-            <label>
-              <input
-              type="checkbox"
-              checked={useAddressFromAccount}
-              onChange={handleUseAddressFromAccountChange}
-              />
-              Use address from account
-            </label>
-          </div>
-          <table className='address-table'>
-            <tbody>
-              <tr>
-                <td><label htmlFor='street'>Street:</label></td>
-                <td>
-                  <input
-                    type="text"
-                    id="street"
-                    value={street}
-                    onChange={(e) => setStreet(e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td><label htmlFor='city'>City:</label></td>
-                <td>
-                  <input
-                    type="text"
-                    id="city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td><label htmlFor='state'>State:</label></td>
-                <td>
-                  <input
-                    type="text"
-                    id="state"
-                    value={state}
-                    onChange={(e) => setState(e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <td><label htmlFor='zipCode'>Zip Code:</label></td>
-                <td>
-                  <input
-                    type="text"
-                    id="zipCode"
-                    value={zipCode}
-                    onChange={(e) => setZipCode(e.target.value)}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </>)}
+            <div className="right-quadrant">
+              <div className="info-section">
+                <h3>Cart</h3>
+                <hr className="dotted-divider" />
+                {cartItems.map((item) => (
+                  <div className="cart-item" key={item.id}>
+                    <span>{item.name}</span>
+                    <span>${(item.price / 100).toFixed(2)}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="info-section">
+                <h3>Payment</h3>
+                <hr className="dotted-divider" />
+                <form onSubmit={handleSubmit}>
+                  <table className="card-table">
+                    <tbody>
+                      <tr>
+                        <td><label htmlFor="card">Card Number:</label></td>
+                        <td><CardNumberElement className="card-number" options={CARD_ELEMENT_OPTIONS} /></td>
+                      </tr>
+                      <tr>
+                        <td><label htmlFor="exp">Expiration Date:</label></td>
+                        <td><CardExpiryElement options={CARD_ELEMENT_OPTIONS} /></td>
+                      </tr>
+                      <tr>
+                        <td><label htmlFor="cvc">CVC:</label></td>
+                        <td><CardCvcElement options={CARD_ELEMENT_OPTIONS} /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="submit">Confirm Order</button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </>
   );
-};
+}
 
 export default CheckoutForm;
-
-/*import React, { useContext } from "react";
-import CartContext from "./CartContext";
-
-const Cart = () => {
-  const { cart } = useContext(CartContext);
-
-  return (
-    <div>
-      <h2>Cart</h2>
-      {cart.map((item, index) => (
-        <div key={index}>
-          <h3>{item.name}</h3>
-          <p>{item.price}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default Cart();*/
