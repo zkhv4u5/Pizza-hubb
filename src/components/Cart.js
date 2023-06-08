@@ -3,6 +3,8 @@ import CartContext from "./CartContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import './cart.css'
+
 
 
 
@@ -64,7 +66,7 @@ function Cart(props) {
       <h3>Subtotal: ${getTotalPrice() / 100}</h3>
       {/*Button with link to Checkout page*/}
       <Link to="/checkout">
-        <button>Checkout</button>
+        <button class="btn btn-primary">Checkout</button>
       </Link>
     </div>
   );}
