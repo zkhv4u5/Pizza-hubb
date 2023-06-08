@@ -6,7 +6,6 @@ import HomePage from './pages/Home';
 import MenuPage from './pages/Menu';
 import ContactUsPage from './pages/Contact';
 import LocationsPage from './pages/Locations';
-import OrderOnlinePage from './pages/OrderOnline';
 import OurStoryPage from './pages/OurStory';
 import SignInPage from './pages/SignIn';
 import CheckoutPage from './pages/Checkout';
@@ -51,7 +50,6 @@ function ClerkProviderWithRoutes() {
               {/* <Route path="/manage"element={<ManagePage/>}/> */}
               <Route path="/menu"element={<MenuPage/>}/>
               <Route path="/checkout" element={<CheckoutPage />} />
-              <Route path="/order-online" element={<OrderOnlinePage />} />
               <Route path="/locations" element={<LocationsPage />} />   
             </Routes>
         </div>

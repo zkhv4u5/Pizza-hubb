@@ -46,11 +46,6 @@ function NavigationBar() {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/order-online" className="nav-link">
-              Order Online
-            </Link>
-          </li>
-          <li className="nav-item">
             <Link to="/locations" className="nav-link">
             Locations
             </Link>

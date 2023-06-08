@@ -9,4 +9,5 @@
 .picture{
   max-height: 128px;
   max-width: 128px;
+  border-radius: 10px;
 }
